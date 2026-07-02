@@ -25,6 +25,9 @@ img {
 body {
 	font-weight: 400;
 }
+body > .container-lg.pt-3.pb-2.my-0.bg-white:first-child {
+	display: none;
+}
 h1, h2, h3, h4, h5, h6 {
 	font-weight: 400;
 }
