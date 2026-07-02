@@ -1,0 +1,414 @@
+﻿<!DOCTYPE html>
+<html>
+<!-- InstanceBegin template="/Templates/basic.dwt.php" codeOutsideHTMLIsLocked="false" -->
+
+<head>
+  <!-- InstanceBeginEditable name="title" -->
+  <title>挺水植物</title>
+  <!-- InstanceEndEditable -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords"
+    content="四川,植物,植物标本,模式标本,植物图片,标本照片,标本馆,植物标本馆,四川数字植物标本馆,成都平原地区湿地水生植物种质资源数据库,china,plant,botany,herbarium,herbaria,specimen">
+  <meta name="description" content="成都平原地区湿地水生植物种质资源数据库">
+  <link rel="icon" href="..\public\images\icons\favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="..\public\images\icons\favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="..\public\images\icons\apple-touch-icon.png">
+  <link rel="stylesheet" href="..\public\css\bootstrap.min.css">
+  <link rel="stylesheet" href="..\public\css\fontawesome-all.min.css">
+  <link rel="stylesheet" href="..\public\plugins\jquery-ui\jquery-ui.min.css">
+  <link rel="stylesheet" href="..\public\plugins\jquery-ui\jquery-ui.theme.min.css">
+  <link rel="stylesheet" href="..\public\plugins\bootstrap-select\bootstrap-select.min.css">
+  <link rel="stylesheet" href="..\public\css\basic.css">
+  <link rel="stylesheet" href="..\public\plugins\jquery-viewer\viewer.min.css">
+  <link rel="stylesheet" href="..\public\plugins\unitegallery\css\unite-gallery.css">
+
+  <!-- InstanceBeginEditable name="css" -->
+  <!-- InstanceEndEditable -->
+</head>
+
+<body>
+  <div class="container-lg pt-3 pb-2 my-0 bg-white">
+    <div class="row justify-content-between">
+      <div class="col-md-8">
+        <!-- <a class="navbar-brand mr-2" href="..\index.html"><img class="brand-icon"
+            src="..\public\images\icons\nsti_icon.png" alt="nsti-icon"></a>
+        <a class="navbar-brand mr-2" href="..\index.html"><img class="brand-icon" src="..\public\images\icons\logo.png"
+            alt="site-icon"></a> -->
+      </div>
+      <div class="col-md-4">
+        <div id="user_dashboard" class="d-flex flex-row-reverse my-1">
+          <button class="navbar-toggler collapsed ml-1 d-lg-none" type="button" data-toggle="collapse"
+            data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"><i
+              class="fas fa-ellipsis-v text-title"></i></button>
+          <!-- <button class="btn btn-title ml-1" type="button" onclick="switchLanguage()"><i class="fas fa-globe fa-fw"></i><strong data-i18n="lang">切换语言</strong></button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <nav class="navbar navbar-expand-lg navbar-dark nav-homepage py-0 my-0">
+    <div class="container-lg">
+      <div class="navbar-collapse collapse" id="navbar">
+        <ul class="navbar-nav mr-auto my-2">
+          <li class="nav-item mr-2">
+            <a class="nav-link text-light" href="..\index.html"><strong>首页</strong></a>
+          </li>
+          <li class="nav-item mr-2">
+            <a class="nav-link text-light" href="tingsui_list.html"><strong>挺水植物</strong></a>
+          </li>
+          <li class="nav-item mr-2">
+            <a class="nav-link text-light" href="fuye_list.html"><strong>浮叶植物</strong></a>
+          </li>
+          <li class="nav-item mr-2">
+            <a class="nav-link text-light" href="piaofu_list.html"><strong>漂浮植物</strong></a>
+          </li>
+          <li class="nav-item mr-2">
+            <a class="nav-link text-light" href="cengsui_list.html"><strong>沉水植物</strong></a>
+          </li>
+          <li class="nav-item mr-2">
+            <a class="nav-link text-light" href="shisheng_list.html"><strong>湿生植物</strong></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- InstanceBeginEditable name="content" -->
+  <div class="jumbotron jumbotron-fluid jumbotron-title py-2">
+    <div class="container-lg text-white">
+      <h4 class="my-3">
+        <strong class="align-bottom">挺水植物数据</strong>
+        <a data-toggle="collapse" href="#database_info" aria-expanded="false" aria-controls="database_info"
+          class="badge badge-light text-title ml-2 pb-1">简介</a>
+      </h4>
+      <div class="collapse" id="database_info">
+        <p class="text-justify">中国农业科学院都市农业研究所调研整理</p>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid content">
+    <div class="row">
+      <div class="col-xl-2">
+        <h6 class="small text-secondary mb-3 d-none d-xl-block" data-i18n="filter">检索</h6>
+        <button id="show_filter" class="btn btn-outline-default btn-block mb-3 d-xl-none" onclick="showFilter()"><span
+            data-i18n="filter">检索</span><i class="fas fa-caret-down fa-fw"></i></button>
+        <div class="filter d-none d-xl-block">
+          <div class="form-row mb-3">
+            <div class="col-md-6 col-xl-12">
+              <div class="form-group">
+                <input id="taxonName" name="taxonName" type="text" class="form-control advanced-search"
+                  placeholder="中文名或学名">
+              </div>
+            </div>
+            <div class="col-6 col-md-3 col-xl-6">
+              <div class="form-group">
+                <input id="men" name="men" type="text" class="form-control advanced-search" placeholder="门">
+              </div>
+            </div>
+            <div class="col-6 col-md-3 col-xl-6">
+              <div class="form-group">
+                <input id="gang" name="gang" type="text" class="form-control advanced-search" placeholder="纲">
+              </div>
+            </div>
+          </div>
+          <div class="form-row mb-3">
+
+            <div class="col-6 col-md-4 col-lg-2 col-xl-6">
+              <div class="form-group">
+                <input id="mu" name="mu" type="text" class="form-control advanced-search" placeholder="目">
+              </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2 col-xl-6">
+              <div class="form-group">
+                <input id="ke" name="ke" type="text" class="form-control advanced-search" placeholder="科">
+              </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2 col-xl-6">
+              <div class="form-group">
+                <input id="shu" name="shu" type="text" class="form-control advanced-search" placeholder="属">
+              </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2 col-xl-6">
+              <div class="form-group">
+                <input id="zhong" name="zhong" type="text" class="form-control advanced-search" placeholder="种">
+              </div>
+            </div>
+          </div>
+          <div class="form-row mb-2">
+            <div class="col">
+              <div class="form-group">
+                <button id="search_reset" type="reset" class="btn btn-outline-default btn-block"><i
+                    class="fas fa-times fa-fw mr-2"></i><span data-i18n="filterClear">清空</span></button>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <button id="advanced_search" onclick="advanced_search()" class="btn btn-default btn-block"><i
+                    class="fas fa-search fa-fw mr-2"></i><span>检索</span></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-10 border-left">
+        <ul class="nav nav-tabs mb-2">
+          <li class="nav-item">
+            <a id="list_view" class="nav-link active" href="#"><i class="fas fa-list fa-fw mr-1"></i><span
+                data-i18n="listView">列表</span></a>
+          </li>
+        </ul>
+        <!-- <p id="total" class="text-muted">　</p> -->
+        <!-- <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th style="width: 5%"><a id="order_withPhoto" href="#" class="order-icon text-grey"
+                    data-order-type="none" data-sort-value="withPhoto"><i class="fas fa-sort ml-2"></i></a></th>
+                <th style="width: 15%"><strong>中文学名</strong><a id="order_code" href="#" class="order-icon text-grey"
+                    data-order-type="none" data-sort-value="collectionCode"><i class="fas fa-sort ml-2"></i></a></th>
+                <th style="width: 30%"><strong>拉丁学名</strong><a id="order_name" href="#" class="order-icon text-grey"
+                    data-order-type="none" data-sort-value="taxonName"><i class="fas fa-sort ml-2"></i></a></th>
+                <th style="width: 20%"><strong>科中文名</strong><a id="order_collector" href="#"
+                    class="order-icon text-grey" data-order-type="none" data-sort-value="recordedBy"><i
+                      class="fas fa-sort ml-2"></i></a></th>
+                <th style="width: 15%"><strong>属中文名</strong><a id="order_locality" href="#" class="order-icon text-grey"
+                    data-order-type="none" data-sort-value="locality"><i class="fas fa-sort ml-2"></i></a></th>
+                
+              </tr>
+            </thead>
+            <tbody id="spms_list1">
+
+              <tr class="spms-row" style="transform: rotate(0);">
+                <td class="align-middle clickable"><img src="http://127.0.0.1:8081/2%E9%87%8E%E6%85%88%E5%A7%91.png"
+                    style="max-height: 32px;max-width: 32px"></td>
+                <td class="align-middle clickable">野慈姑</td>
+                <td class="align-middle clickable"><em>Sagittaria trifolia</em> <em></em></td>
+                <td class="align-middle clickable">泽泻科ty大范甘迪个</td>
+                <td class="align-middle clickable">慈姑属jkl大范甘迪jljj</td>
+              </tr>
+            </tbody>
+          </table>
+        </div> -->
+        <div class="panel panel-default table-responsive" id="mainContent">
+        </div>
+        <div id="pagination" class="row">
+          <div class="col">
+            <div class="d-flex justify-content-end">
+              <div class="form-group">
+                <div class="input-group">
+
+                  <div class="input-group-prepend">
+                    <button id="previous_page1" onclick="goToFirstPage()" class="btn btn-outline-default">首页</button>
+                  </div>
+                  <div class="input-group-prepend">
+                    <button id="previous_page1" onclick="goToPreviousPage()" class="btn btn-outline-default"><i
+                        class="fas fa-chevron-left"></i>上一页</button>
+                  </div>
+
+                  <div class="input-group-prepend">
+                    <button id="showpages" class="btn btn-outline-default"></button>
+                  </div>
+
+                  <div class="input-group-append">
+                    <button id="next_page1" onclick="goToNextPage()" class="btn btn-outline-default">下一页<i
+                        class="fas fa-chevron-right"></i></button>
+                  </div>
+                  <div class="input-group-prepend">
+                    <button id="previous_page1" onclick="goToLastPage()" class="btn btn-outline-default">末页</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- InstanceEndEditable -->
+  <!-- footer -->
+  <footer class="jumbotron jumbotron-fluid pt-5 pb-4 mb-0">
+    <div class="container-lg">
+      <div class="d-flex justify-content-center">
+        <ul class="list-unstyled text-title text-center small">
+          <li class="my-2">© 2022-2023 <span class="mr-2">中国农业科学院都市农业研究所</span><a rel="license"
+              href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" class="text-reset"><i
+                class="fab fa-creative-commons fa-fw"></i><i class="fab fa-creative-commons-by fa-fw"></i><i
+                class="fab fa-creative-commons-nc fa-fw"></i><i class="fab fa-creative-commons-nd fa-fw"></i></a></li>
+          <li class="my-2"><a href="https://beian.miit.gov.cn" target="_blank" class="text-title">京ICP备16067583号-10</a>
+          </li>
+          <li class="my-2"><span>四川省成都市天府新区蜡梓东街36号</span>（610213）</li>
+          <li class="my-2">dushisuo@caas.cn</li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+  <script type="text/javascript" src="..\public\js\jquery.min.js"></script>
+  <script type="text/javascript" src="..\public\js\jquery.i18n.properties.min.js"></script>
+  <script type="text/javascript" src="..\public\js\bootstrap.bundle.min.js"></script>
+  <script type="text/javascript" src="..\public\plugins\jquery-ui\jquery-ui.min.js"></script>
+  <script type="text/javascript" src="..\public\plugins\bootstrap-select\bootstrap-select.min.js"></script>
+  <script type="text/javascript" src="..\public\js\basic.js"></script>
+  <!-- InstanceBeginEditable name="scripts" -->
+  <script type="text/javascript" src="..\public\js\spms.js"></script>
+  <script type="text/javascript" src="..\public\js\spms_list.js"></script>
+  <!-- InstanceEndEditable -->
+  <script type="text/javascript" src="..\public\js\config.js"></script>
+  <script type="text/javascript">
+    var currPage = 1;
+    var totalCount;
+    var dataLIst = [];
+    /*将数据取出来*/
+    function data(curr, limit) {
+      //console.log("tot:"+totalCount)
+      /*拿到总数据*/
+      $.ajax({
+        type: "GET",
+        url: BaseUrl + "/plant/getTingsuiPlants?pages=" + curr,    //s是SpringMVC中Controller中的请求地址 
+        contentType: "application/json;charset=utf-8",
+        success: function (data) {
+          /*拿到总数据*/
+          totalCount = data.total; //取出来的是数据总量
+          dataLIst = data.records; // 将数据放到一个数组里面（dataLIst 还未声明，莫着急）
+          createTable(curr, limit, totalCount);
+          console.log("tot:" + totalCount)
+        },
+        error: function () {
+          alert("解析失败");
+        }
+      });
+    }
+    window.onload = function () {
+      /*取到总条数*/
+      /*每页显示多少条  10条*/
+      var limit = 10;
+      data(currPage, limit)
+      //createTable(1, limit, totalCount);
+    }
+
+    /*创建的是一个表格，并将数据放进去*/
+    function createTable(currPage, limit, total) {
+      var html = [],
+        showNum = limit;
+      if (total - (currPage * limit) < 0) showNum = total - ((currPage - 1) * limit);
+      html.push(' <div class="table-responsive"><table class="table table-hover">');
+      html.push('<thead><tr>' +
+        '<th style="width: 15%"><strong>中文学名</strong></th>' +
+        '<th style="width: 30%"><strong>拉丁学名</strong></th>' +
+        '<th style="width: 20%"><strong>科中文名</strong></th>' +
+        '<th style="width: 15%"><strong>属中文名</strong></th><th style="width: 5%"></th></tr></thead><tbody id="spms_list1">');
+
+      for (var i = 0; i < showNum; i++) {
+        html.push('<tr class="spms-row" style="transform: rotate(0);" onclick="clicktr(' + dataLIst[i].id + ')">');
+        html.push('<td class="align-middle clickable">' + dataLIst[i].name + '</td>');
+        if (dataLIst[i].latinname == "" || dataLIst[i].latinname == null) {
+          html.push('<td class="align-middle clickable">无</td>');
+        } else {
+          html.push('<td class="align-middle clickable">' + dataLIst[i].latinname + '</td>');
+        }
+        if (dataLIst[i].ke == "" || dataLIst[i].ke == null) {
+          html.push('<td class="align-middle clickable">无</td>');
+        } else {
+          html.push('<td class="align-middle clickable">' + dataLIst[i].ke + '</td>');
+        }
+        if (dataLIst[i].shu == "" || dataLIst[i].shu == null) {
+          html.push('<td class="align-middle clickable">无</td>');
+        } else {
+          html.push('<td class="align-middle clickable">' + dataLIst[i].shu + '</td>');
+        }
+        html.push('<td class="align-middle clickable"><img src="' + dataLIst[i].imgurl + '"style="max-height: 32px;max-width: 32px"></td>');
+        html.push('</tr>');
+      }
+      html.push('</tbody></table></div>');
+      var mainObj = $('#mainContent');
+      mainObj.empty();
+      mainObj.html(html.join(''));
+    }
+    function clicktr(id) {
+      window.location.href = "details2.html?id=" + id
+      console.log(id)
+    }
+
+    // Function to navigate to the next page
+    function goToNextPage() {
+      const totalPages = Math.ceil(totalCount / 10); // Calculate total pages
+      if (currPage < totalPages) {
+        currPage++;
+        document.getElementById("showpages").innerHTML = "第" + currPage + "页";
+        var limit = 10;
+        data(currPage, limit)
+        // You can perform the necessary actions to load the next page here
+        console.log(`Navigating to page ${currPage}`);
+      } else {
+        alert("已经到达最后一页！");
+      }
+    }
+
+    // Function to navigate to the previous page
+    function goToPreviousPage() {
+      if (currPage > 1) {
+        currPage--;
+        document.getElementById("showpages").innerHTML = "第" + currPage + "页";
+        var limit = 10;
+        data(currPage, limit)
+        // You can perform the necessary actions to load the previous page here
+        console.log(`Navigating to page ${currPage}`);
+      } else {
+        alert("已经到达第一页！");
+      }
+    }
+
+
+    function goToFirstPage() {
+      currPage = 1; // Set current page to 1
+      document.getElementById("showpages").innerHTML = "第" + currPage + "页";
+      var limit = 10;
+      data(currPage, limit);
+      // You can perform the necessary actions to load the first page here
+      //console.log(`Navigating to page ${currPage}`);
+
+    }
+    function goToLastPage() {
+      const totalPages = Math.ceil(totalCount / 10); // Calculate total pages
+      currPage = totalPages; // Set current page to last page
+      document.getElementById("showpages").innerHTML = "第" + currPage + "页";
+      var limit = 10;
+      data(currPage, limit);
+      // You can perform the necessary actions to load the last page here
+      //console.log(`Navigating to page ${currPage}`);
+    }
+    document.getElementById("showpages").innerHTML = "第" + currPage + "页";
+
+    function advanced_search() {
+      var names = document.getElementById('taxonName').value
+      var name = names.trim()
+
+      var men = document.getElementById('men').value
+      var men = men.trim()
+
+      var gang = document.getElementById('gang').value
+      var gang = gang.trim()
+
+      var mu = document.getElementById('mu').value
+      var mu = mu.trim()
+
+      var ke = document.getElementById('ke').value
+      var ke = ke.trim()
+
+      var shu = document.getElementById('shu').value
+      var shu = shu.trim()
+
+      var zhong = document.getElementById('zhong').value
+      var zhong = zhong.trim()
+
+      if (name == '' || name == null) {
+        alert('植物名称不能为空!')
+        return;
+      } else {
+        window.location.href = "advanced_list.html?name=" + name + "&men=" + men + "&gang=" + gang + "&mu=" + mu + "&ke=" + ke + "&shu=" + shu + "&zhong=" + zhong
+      }
+    }
+  </script>
+</body>
+<!-- InstanceEnd -->
+
+</html>

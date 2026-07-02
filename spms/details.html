@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<!-- InstanceBegin template="/Templates/basic.dwt.php" codeOutsideHTMLIsLocked="false" -->
+
+<head>
+  <!-- InstanceBeginEditable name="title" -->
+  <title>植物详情</title>
+  <!-- InstanceEndEditable -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords"
+    content="四川,植物,植物标本,模式标本,植物图片,标本照片,标本馆,植物标本馆,四川数字植物标本馆,成都平原地区湿地水生植物种质资源数据库,china,plant,botany,herbarium,herbaria,specimen">
+  <meta name="description" content="成都平原地区湿地水生植物种质资源数据库">
+  <link rel="icon" href="../public/images/icons/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="../public/images/icons/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="../public/images/icons/apple-touch-icon.png" />
+  <link rel="stylesheet" href="../public/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../public/css/fontawesome-all.min.css" />
+  <link rel="stylesheet" href="../public/plugins/jquery-ui/jquery-ui.min.css" />
+  <link rel="stylesheet" href="../public/plugins/jquery-ui/jquery-ui.theme.min.css" />
+  <link rel="stylesheet" href="../public/plugins/bootstrap-select/bootstrap-select.min.css" />
+  <link rel="stylesheet" href="../public/css/basic.css" />
+  <link rel="stylesheet" href="../public/plugins/jquery-viewer/viewer.min.css" />
+  <link rel="stylesheet" href="../public/plugins/unitegallery/css/unite-gallery.css" />
+
+  <link rel="stylesheet" href="../public/plugins/jquery-viewer/viewer.min.css" />
+  <link rel="stylesheet" href="../public/plugins/unitegallery/css/unite-gallery.css" />
+  <!-- InstanceEndEditable -->
+</head>
+
+<body>
+  <div class="container-lg pt-3 pb-2 my-0 bg-white">
+    <div class="row justify-content-between">
+      <div class="col-md-8">
+        <!-- <a class="navbar-brand mr-2" href="..\index.html"><img class="brand-icon"
+            src="../public/images/icons/nsti_icon.png" alt="nsti-icon" /></a>
+        <a class="navbar-brand mr-2" href="..\index.html"><img class="brand-icon" src="../public/images/icons/logo.png"
+            alt="site-icon" /></a> -->
+      </div>
+      <div class="col-md-4">
+        <div id="user_dashboard" class="d-flex flex-row-reverse my-1">
+          <button class="navbar-toggler collapsed ml-1 d-lg-none" type="button" data-toggle="collapse"
+            data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"><i
+              class="fas fa-ellipsis-v text-title"></i></button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <nav class="navbar navbar-expand-lg navbar-dark nav-homepage py-0 my-0">
+    <div class="container-lg">
+      <div class="navbar-collapse collapse" id="navbar">
+        <ul class="navbar-nav mr-auto my-2">
+          <li class="nav-item mr-2">
+            <a class="nav-link text-light" href="..\index.html"><strong>首页</strong></a>
+          </li>
+          <li class="nav-item mr-2">
+            <a class="nav-link text-light" href="tingsui_list.html"><strong>挺水植物</strong></a>
+          </li>
+          <li class="nav-item mr-2">
+            <a class="nav-link text-light" href="fuye_list.html"><strong>浮叶植物</strong></a>
+          </li>
+          <li class="nav-item mr-2">
+            <a class="nav-link text-light" href="piaofu_list.html"><strong>漂浮植物</strong></a>
+          </li>
+          <li class="nav-item mr-2">
+            <a class="nav-link text-light" href="cengsui_list.html"><strong>沉水植物</strong></a>
+          </li>
+          <li class="nav-item mr-2">
+            <a class="nav-link text-light" href="shisheng_list.html"><strong>湿生植物</strong></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-lg mb-5 pt-4" id="mainContent">
+
+  </div>
+  <!-- InstanceEndEditable -->
+  <!-- footer -->
+  <footer class="jumbotron jumbotron-fluid pt-5 pb-4 mb-0">
+    <div class="container-lg">
+      <div class="d-flex justify-content-center">
+        <ul class="list-unstyled text-title text-center small">
+          <li class="my-2">© 2022-2023 <span class="mr-2">中国农业科学院都市农业研究所</span><a rel="license"
+              href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" class="text-reset"><i
+                class="fab fa-creative-commons fa-fw"></i><i class="fab fa-creative-commons-by fa-fw"></i><i
+                class="fab fa-creative-commons-nc fa-fw"></i><i class="fab fa-creative-commons-nd fa-fw"></i></a></li>
+          <li class="my-2"><a href="https://beian.miit.gov.cn" target="_blank" class="text-title">京ICP备16067583号-10</a>
+          </li>
+          <li class="my-2"><span>四川省成都市天府新区蜡梓东街36号</span>（610213）</li>
+          <li class="my-2">dushisuo@caas.cn</li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+  <script type="text/javascript" src="../public/js/jquery.min.js"></script>
+  <script type="text/javascript" src="../public/js/jquery.i18n.properties.min.js"></script>
+  <script type="text/javascript" src="../public/js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript" src="../public/plugins/jquery-ui/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="../public/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+  <script type="text/javascript" src="../public/js/basic.js"></script>
+  <!-- InstanceBeginEditable name="scripts" -->
+  <script type="text/javascript" src="../public/plugins/jquery-viewer/viewer.min.js"></script>
+  <script type="text/javascript" src="../public/plugins/jquery-viewer/jquery-viewer.min.js"></script>
+  <script type="text/javascript" src="../public/plugins/unitegallery/js/unitegallery.min.js"></script>
+  <script type="text/javascript" src="../public/plugins/unitegallery/themes/tiles/ug-theme-tiles.js"></script>
+  <script type="text/javascript" src="../public/js/spm_comments.js"></script>
+  <script type="text/javascript" src="../public/js/get_taxon.js"></script>
+  <script type="text/javascript" src="../public/js/spms_detail.js"></script>
+  <!-- InstanceEndEditable -->
+  <script type="text/javascript" src="..\public\js\config.js"></script>
+  <script type="text/javascript">
+
+    //获取url后面的id值
+    var code = "";
+    function GetRequest() {
+      var url = location.search;
+      if (url.indexOf("?") != -1) {    //是否有参数
+        var str = url.substr(1);
+        strs = str.split("=");
+        //alert(strs[1]);   
+        code = strs[1];
+      }
+    }
+    GetRequest();
+    console.log(code);
+
+    /*将数据取出来*/
+    function data(id) {
+      //console.log("tot:"+totalCount)
+      /*拿到总数据*/
+      $.ajax({
+        type: "GET",
+        url: BaseUrl+"/plant/getPlantsById?id=" + id,    //s是SpringMVC中Controller中的请求地址 
+        contentType: "application/json;charset=utf-8",
+        success: function (data) {
+          /*拿到总数据*/
+          //console.log(data[0].nickname==null?data[0].nickname='无':data[0].nickname=data[0].nickname)
+          data[0].nickname==null?data[0].nickname='无':data[0].nickname=data[0].nickname
+          data[0].latinname==null?data[0].latinname='无':data[0].latinname=data[0].latinname
+          data[0].men==null?data[0].men='无':data[0].men=data[0].men
+          data[0].gang==null?data[0].gang='无':data[0].gang=data[0].gang
+          data[0].mu==null?data[0].mu='无':data[0].mu=data[0].mu
+          data[0].ke==null?data[0].ke='无':data[0].ke=data[0].ke
+          data[0].shu==null?data[0].shu='无':data[0].shu=data[0].shu
+          data[0].zhong==null?data[0].zhong='无':data[0].zhong=data[0].zhong
+          data[0].mu==null?data[0].mu='无':data[0].mu=data[0].mu
+          data[0].ke==null?data[0].ke='无':data[0].ke=data[0].ke
+          data[0].shu==null?data[0].shu='无':data[0].shu=data[0].shu
+          data[0].zhong==null?data[0].zhong='无':data[0].zhong=data[0].zhong
+
+          data[0].category==null?data[0].category='无':data[0].category=data[0].category
+          data[0].morphology==null?data[0].morphology='无':data[0].morphology=data[0].morphology
+          data[0].environment==null?data[0].environment='无':data[0].environment=data[0].environment
+          data[0].patronize==null?data[0].patronize='无':data[0].patronize=data[0].patronize
+          data[0].propagate==null?data[0].propagate='无':data[0].propagate=data[0].propagate
+          data[0].pestcontrol==null?data[0].pestcontrol='无':data[0].pestcontrol=data[0].pestcontrol
+          data[0].anthesis==null?data[0].anthesis='无':data[0].anthesis=data[0].anthesis
+          data[0].distributions==null?data[0].distributions='无':data[0].distributions=data[0].distributions
+          data[0].usage==null?data[0].usage='无':data[0].usage=data[0].usage
+
+
+          var html = [];
+          // if((data[0].nickname==null||data[0].nickname=="")||)
+          html.push('<div class="row"><div class="col-sm-10 offset-sm-1 col-lg-7 offset-lg-0"><div class="d-lg-none">' +
+            '<h3 class="font-weight-bold collectionCode"></h3><h6 class="mb-0 institution"></h6><hr /></div>' +
+            '<img id="spm_image" class="w-100" src="'+data[0].imgurl+'" /><hr class="d-lg-none" /></div>' +
+            '<div class="col-lg-5"><div class="row d-none d-lg-block"><div class="col-sm-10 offset-sm-1 col-lg-12 offset-lg-0">' +
+            '<h3 class="font-weight-bold collectionCode"></h3><h6 class="mb-0 institution"></h6><hr /></div></div>' +
+            '<div class="row"><div class="col-sm-10 offset-sm-1 col-lg-12 offset-lg-0"><h6 class="text-secondary small mb-3">种质资源及物种分类</h6>' +
+            '<table class="table table-borderless table-sm mb-2"><tbody><tr><td style="width: 5rem"><strong>中文名</strong></td>' +
+            '<td id="formattedName">'+data[0].name+'</td><tr><tr><td><strong>别名</strong></td><td id="chineseName">'+data[0].nickname+'</td></tr>' +
+            '<tr><td><strong>拉丁名</strong></td><td id="identifiedBy"><em>'+data[0].latinname+'</em></td></tr><tr><td><strong>门</strong></td>' +
+            '<td id="dateIdentified">'+data[0].men+'</td></tr><tr><td><strong>纲</strong></td><td id="typeStatus">'+data[0].gang+'</td></tr><tr>' +
+            '<td><strong>目</strong></td><td id="dateIdentified1">'+data[0].mu+'</td></tr><tr><td><strong>科</strong></td>' +
+            '<td id="typeStatus1">'+data[0].ke+'</td></tr><tr><td><strong>属</strong></td><td id="dateIdentif">'+data[0].shu+'</td></tr><tr>' +
+            '<td><strong>种</strong></td><td id="typeStat">'+data[0].zhong+'</td></tr></tbody></table><hr /></div></div>' +
+            '<div class="row"><div class="col-sm-10 offset-sm-1 col-lg-12 offset-lg-0"><h6 class="text-secondary small mb-3">物种信息</h6>' +
+            '<table class="table table-borderless table-sm mb-2"><tbody><tr><td style="width: 5rem"><strong>植物类型</strong></td>' +
+            '<td id="recordedBy">'+data[0].category+'</td></tr><tr><td><strong>形态特征</strong></td><td id="recordNumber">'+data[0].morphology+'</td></tr><tr>' +
+            '<td><strong>生长环境</strong></td><td id="verbatimEventDate">'+data[0].environment+'</td></tr><tr><td><strong>栽培技术</strong></td>' +
+            '<td id="locality">'+data[0].patronize+'</td></tr><tr><td><strong>繁殖方式</strong></td><td id="elevation">'+data[0].propagate+'</td></tr><tr>' +
+            '<td><strong>病虫害防治</strong></td><td id="habitat">'+data[0].pestcontrol+'</td></tr><tr><td><strong>花果期</strong></td>' +
+            '<td id="occurrenceRemarks">'+data[0].anthesis+'</td></tr><tr><td><strong>分布区域</strong></td><td id="reproductiveCondition">'+data[0].distributions+'</td></tr>' +
+            '<tr><td><strong>用途</strong></td><td id="reproductiveConon">'+data[0].usage+'</td></tr></tbody></table></div></div></div></div>');
+          html.push('<hr />');
+          var mainObj = $('#mainContent');
+          mainObj.empty();
+          mainObj.html(html.join(''));
+        },
+        error: function () {
+          alert("解析失败");
+        }
+      });
+    }
+    data(code)
+
+  </script>
+</body>
+<!-- InstanceEnd -->
+
+</html>

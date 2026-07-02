@@ -1,0 +1,561 @@
+﻿<!DOCTYPE html>
+<html>
+<!-- InstanceBegin template="/Templates/basic.dwt.php" codeOutsideHTMLIsLocked="false" -->
+
+<head>
+  <!-- InstanceBeginEditable name="title" -->
+  <title>成都平原地区湿地水生植物种质资源数据库</title>
+  <!-- InstanceEndEditable -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords"
+    content="四川,植物,植物标本,模式标本,植物图片,标本照片,标本馆,植物标本馆,四川数字植物标本馆,成都平原地区湿地水生植物种质资源数据库,china,plant,botany,herbarium,herbaria,specimen">
+  <meta name="description" content="成都平原地区湿地水生植物种质资源数据库">
+  <link rel="icon" href="public\images\icons\favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="public\images\icons\favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="public\images\icons\apple-touch-icon.png">
+  <link rel="stylesheet" href="public\css\bootstrap.min.css">
+  <link rel="stylesheet" href="public\css\fontawesome-all.min.css">
+  <link rel="stylesheet" href="public\plugins\jquery-ui\jquery-ui.min.css">
+  <link rel="stylesheet" href="public\plugins\jquery-ui\jquery-ui.theme.min.css">
+  <link rel="stylesheet" href="public\plugins\bootstrap-select\bootstrap-select.min.css">
+  <link rel="stylesheet" href="public\css\basic.css">
+  <link rel="stylesheet" href="public\plugins\jquery-viewer\viewer.min.css">
+  <link rel="stylesheet" href="public\plugins\unitegallery\css\unite-gallery.css">
+  <!-- InstanceBeginEditable name="css" -->
+  <link rel="stylesheet" href="public\plugins\fileinput\css\fileinput.min.css">
+  <link rel="stylesheet" href="public\plugins\bootstrap-table\bootstrap-table.min.css">
+  <!-- InstanceEndEditable -->
+  <style>
+    /* 样式文件中的CSS代码 */
+    .loading-spinner {
+      display: none;
+      /* 默认情况下隐藏 */
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 50px;
+      height: 50px;
+      border: 4px solid rgba(0, 0, 0, 0.3);
+      border-top: 4px solid #000;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      /* 旋转动画 */
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container-lg pt-3 pb-2 my-0 bg-white">
+    <div class="row justify-content-between">
+      <div class="col-md-8">
+        <!-- <a class="navbar-brand mr-2" href="index.html"><img class="brand-icon" src="public\images\icons\nsti_icon.png"
+            alt="nsti-icon"></a> -->
+        <!-- <a class="navbar-brand mr-2" href="index.html"><img class="brand-icon" src="public\images\icons\logo.png"
+            alt="site-icon"></a> -->
+      </div>
+      <div class="col-md-4">
+        <div id="user_dashboard" class="d-flex flex-row-reverse my-1">
+          <button class="navbar-toggler collapsed ml-1 d-lg-none" type="button" data-toggle="collapse"
+            data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"><i
+              class="fas fa-ellipsis-v text-title"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <nav class="navbar navbar-expand-lg navbar-dark nav-homepage py-0 my-0">
+    <div class="container-lg">
+      <div class="navbar-collapse collapse" id="navbar">
+        <ul class="navbar-nav mr-auto my-2">
+          <li class="nav-item mr-2">
+            <a class="nav-link text-light" href="index.html"><strong data-i18n="homepage">首页</strong></a>
+          </li>
+
+          <li class="nav-item mr-2">
+            <a class="nav-link text-light" href="spms/tingsui_list.html"><strong>挺水植物</strong></a>
+          </li>
+          <li class="nav-item mr-2">
+            <a class="nav-link text-light" href="spms/fuye_list.html"><strong>浮叶植物</strong></a>
+          </li>
+          <li class="nav-item mr-2">
+            <a class="nav-link text-light" href="spms/piaofu_list.html"><strong>漂浮植物</strong></a>
+          </li>
+          <li class="nav-item mr-2">
+            <a class="nav-link text-light" href="spms/cengsui_list.html"><strong>沉水植物</strong></a>
+          </li>
+          <li class="nav-item mr-2">
+            <a class="nav-link text-light" href="spms/shisheng_list.html"><strong>湿生植物</strong></a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- InstanceBeginEditable name="content" -->
+  <div class="jumbotron jumbotron-fluid bg-cover pt-3">
+
+    <div class="text-right">
+      <img src="public\images\icons\logo_chs_g (2).png" class="pr-3" style="max-width: 100%; max-height: 48px">
+    </div>
+    <div class="container-lg">
+      <div class="row">
+        <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 mb-4 pb-4">
+          <h2 class="text-white font-weight-bold text-center mt-2 mb-3">
+            <span>搜索水生植物数据</span>
+            <!--						<img src="public/images/icons/logo_cvh_w.png" style="max-width: 100%; max-height: 72px" />-->
+          </h2>
+          <div class="form-row px-3">
+            <div class="col-12 col-md-8 col-lg-9">
+              <div class="input-group my-2">
+                <input id="zhongwenName" name="zhongwenName" type="text" class="form-control" placeholder="输入中文名或学名">
+                <div class="input-group-append">
+                  <button class="btn btn-default" onclick="general_search()"><i class="fas fa-search"></i></button>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 offset-3 col-md-4 offset-md-0 col-lg-3">
+              <a class="btn btn-outline-title btn-block my-2" data-toggle="modal" data-target="#homepage_search_modal"
+                data-i18n="advanced" href="">高级检索</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container mb-5">
+    <div class="row mb-5">
+      <div class="col-md-4 my-3 px-3">
+        <div class="media border-right">
+          <img src="public\images\icons\homepage_spms.png" class="align-self-start data-icon mr-3" alt="spms">
+          <div class="media-body">
+            <h5 class="text-secondary my-0"><small>植物类别</small></h5>
+            <h4><span class="timer" id="ziwu">275</span><span>类</span></h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 my-3 px-3">
+        <div class="media border-right">
+          <img src="public\images\icons\homepage_typus.png" class="align-self-start data-icon mr-3" alt="spms">
+          <div class="media-body">
+            <h5 class="text-secondary my-0"><small>水生植物</small></h5>
+            <h4><span class="timer" id="suisheng">205</span><span>条</span></h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 my-3 px-3">
+        <div class="media border-right">
+          <img src="public\images\icons\homepage_photos.png" class="align-self-start data-icon mr-3" alt="spms">
+          <div class="media-body">
+            <h5 class="text-secondary my-0"><small>彩色照片</small></h5>
+            <h4><span class="timer" id="photo">262</span><span>张</span></h4>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="row my-4">
+      <div class="col-lg-8">
+        <h5 class="mb-3"><span>热搜植物</span><i class="fas fa-caret-right fa-fw text-default"></i></h5>
+        <div class="bootstrap-table bootstrap4">
+          <!-- <div class="fixed-table-toolbar"></div> -->
+          <!-- 加载中的圆圈 -->
+          <div id="loading_spinner" class="loading-spinner">
+            <!-- 这里可以添加加载动画的内容，例如一个旋转的圆圈或其他动画效果 -->
+          </div>
+          <div class="fixed-table-container" style="padding-bottom: 0px;">
+            <!-- <div class="fixed-table-header" style="display: none;">
+              <table></table>
+            </div> -->
+            <div class="fixed-table-body">
+              <div class="fixed-table-loading table table-sm table-hover border-bottom"
+                style="top: 0px; display: none;">
+                <span class="loading-wrap">
+                  <span class="loading-text"></span>
+                  <span class="animation-wrap"><span class="animation-dot"></span></span>
+                </span>
+              </div>
+              <div class="table-responsive" style="height: 300px; overflow-y: scroll;">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+
+                      <th style="width: 15%"><strong>中文学名&nbsp;&nbsp;&nbsp;&nbsp;</strong></th>
+                      <th style="width: 30%"><strong>拉丁学名</strong></th>
+                      <th style="width: 20%"><strong>科中文名&nbsp;&nbsp;&nbsp;&nbsp;</strong></th>
+                      <th style="width: 15%"><strong>属中文名</strong></th>
+                      <th style="width: 5%"></th>
+                    </tr>
+                  </thead>
+                  <tbody id="table_body">
+
+                    <!-- 这里暂时没有内容，数据将通过Ajax请求来添加 -->
+                  </tbody>
+                  <!-- <tbody id="spms_list1">
+                    <tr class="spms-row" style="transform: rotate(0);">
+
+                      <td class="align-middle clickable">野慈姑</td>
+                      <td class="align-middle clickable"><em>Sagittaria trifolia</em> <em></em></td>
+                      <td class="align-middle clickable">泽泻科</td>
+                      <td class="align-middle clickable">慈姑属</td>
+                      <td class="align-middle clickable"><img src="imgs/2野慈姑.png"
+                          style="max-height: 32px;max-width: 32px"></td>
+                    </tr>
+                    <tr class="spms-row" style="transform: rotate(0);">
+
+                      <td class="align-middle clickable">莲蓬</td>
+                      <td class="align-middle clickable"><em>Nelumbo nucifera</em> <em></em></td>
+                      <td class="align-middle clickable">莲科</td>
+                      <td class="align-middle clickable">莲属</td>
+                      <td class="align-middle clickable"><img src="imgs/14莲蓬.png"
+                          style="max-height: 32px;max-width: 32px"></td>
+                    </tr>
+                    <tr class="spms-row" style="transform: rotate(0);">
+
+                      <td class="align-middle clickable">宫廷草</td>
+                      <td class="align-middle clickable"><em>Rotala rotundifoliavar</em> <em></em></td>
+                      <td class="align-middle clickable">千屈菜科</td>
+                      <td class="align-middle clickable">节节菜属</td>
+                      <td class="align-middle clickable"><img src="imgs/47宫廷草.png"
+                          style="max-height: 32px;max-width: 32px"></td>
+                    </tr>
+                    <tr class="spms-row" style="transform: rotate(0);">
+
+                      <td class="align-middle clickable">水龙骨</td>
+                      <td class="align-middle clickable"><em>Polypodiode snipponica</em> <em></em></td>
+                      <td class="align-middle clickable">水龙骨科</td>
+                      <td class="align-middle clickable">水龙骨属</td>
+                      <td class="align-middle clickable"><img src="imgs/99水龙骨.png"
+                          style="max-height: 32px;max-width: 32px"></td>
+                    </tr>
+                    <tr class="spms-row" style="transform: rotate(0);">
+                      <td class="align-middle clickable">浮萍</td>
+                      <td class="align-middle clickable"><em>Lemna minor</em> <em></em></td>
+                      <td class="align-middle clickable">天南星科</td>
+                      <td class="align-middle clickable">浮萍属</td>
+                      <td class="align-middle clickable"><img src="imgs/87浮萍.png"
+                          style="max-height: 32px;max-width: 32px"></td>
+                    </tr>
+                    <tr class="spms-row" style="transform: rotate(0);">
+                      <td class="align-middle clickable">田葱</td>
+                      <td class="align-middle clickable"><em>Philydrum lanuginosum</em> <em></em></td>
+                      <td class="align-middle clickable">田葱科</td>
+                      <td class="align-middle clickable">田葱属</td>
+                      <td class="align-middle clickable"><img src="imgs/197田葱.png"
+                          style="max-height: 32px;max-width: 32px"></td>
+                    </tr>
+                  </tbody> -->
+
+                </table>
+              </div>
+            </div>
+            <div class="fixed-table-footer">
+              <table>
+                <thead>
+                  <tr></tr>
+                </thead>
+              </table>
+            </div>
+          </div>
+          <div class="fixed-table-pagination" style="display: none;"></div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="row mb-4">
+          <div class="col-12">
+            <h6 class="text-secondary small">站外资源</h6>
+          </div>
+          <div class="col-md-6 col-lg-12">
+            <div class="card bg-default bg-cover border-0 mb-2"
+              style="background-image: url(public/images/card_bg_1.jpeg)">
+              <div class="card-body d-flex align-items-center" style="height: 60px">
+                <h5 class="card-title font-weight-bold my-0 card-source"><a class="text-white stretched-link"
+                    href="http://mnh.scu.edu.cn" target="_blank">标本资源共享子库</a></h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-12">
+            <div class="card text-light bg-default bg-cover border-0 mb-2"
+              style="background-image: url(public/images/card_bg_2.jpeg)">
+              <div class="card-body d-flex align-items-center" style="height: 60px">
+                <h5 class="card-title font-weight-bold my-0 card-source"><a class="text-white stretched-link"
+                    href="http://www.scpri.ac.cn/zwk/" target="_blank">四川植物数据库</a></h5>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+  <div class="modal fade" id="homepage_search_modal" tabindex="-1" role="dialog" aria-labelledby="homepage_search_title"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="homepage_search_title">水生植物数据高级检索</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div>
+          <div class="modal-body">
+            <div class="form-row mb-3">
+              <div class="col-md-6 col-xl-12">
+                <div class="form-group">
+                  <input id="taxonName" name="taxonName" type="text" class="form-control advanced-search"
+                    placeholder="中文名或学名">
+                </div>
+              </div>
+              <div class="col-6 col-md-3 col-xl-6">
+                <div class="form-group">
+                  <input id="men" name="men" type="text" class="form-control advanced-search" placeholder="门">
+                </div>
+              </div>
+              <div class="col-6 col-md-3 col-xl-6">
+                <div class="form-group">
+                  <input id="gang" name="gang" type="text" class="form-control advanced-search" placeholder="纲">
+                </div>
+              </div>
+            </div>
+            <div class="form-row mb-3">
+              <div class="col-sm-6 col-md-4 col-lg-2 col-xl-6">
+                <div class="form-group">
+                  <input id="mu" name="mu" type="text" class="form-control advanced-search" placeholder="目">
+                </div>
+              </div>
+
+              <div class="col-6 col-md-4 col-lg-2 col-xl-6">
+                <div class="form-group">
+                  <input id="ke" name="ke" type="text" class="form-control advanced-search" placeholder="科">
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-lg-2 col-xl-6">
+                <div class="form-group">
+                  <input id="shu" name="shu" type="text" class="form-control advanced-search" placeholder="属">
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-lg-2 col-xl-6">
+                <div class="form-group">
+                  <input id="zhong" name="zhong" type="text" class="form-control advanced-search" placeholder="种">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button id="advanced_search" onclick="advanced_search()" class="btn btn-default btn-block"><i
+                class="fas fa-search fa-fw mr-2"></i><span>检索</span></button>
+          </div>
+          </di>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- InstanceEndEditable -->
+  <!-- footer -->
+  <footer class="jumbotron jumbotron-fluid pt-5 pb-4 mb-0">
+    <div class="container-lg">
+      <div class="d-flex justify-content-center">
+        <ul class="list-unstyled text-title text-center small">
+          <li class="my-2">© 2022-2023 <span class="mr-2">中国农业科学院都市农业研究所</span><a rel="license"
+              href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" class="text-reset"><i
+                class="fab fa-creative-commons fa-fw"></i><i class="fab fa-creative-commons-by fa-fw"></i><i
+                class="fab fa-creative-commons-nc fa-fw"></i><i class="fab fa-creative-commons-nd fa-fw"></i></a></li>
+          <li class="my-2"><a href="https://beian.miit.gov.cn" target="_blank" class="text-title">京ICP备16067583号-10</a>
+          </li>
+          <li class="my-2"><span>四川省成都市天府新区蜡梓东街36号</span>（610213）</li>
+          <li class="my-2">dushisuo@caas.cn</li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+  <script type="text/javascript" src="public\js\jquery.min.js"></script>
+  <script type="text/javascript" src="public\js\jquery.i18n.properties.min.js"></script>
+  <script type="text/javascript" src="public\js\bootstrap.bundle.min.js"></script>
+  <script type="text/javascript" src="public\js\axios.min.js"></script>
+  <script type="text/javascript" src="public\plugins\jquery-ui\jquery-ui.min.js"></script>
+  <script type="text/javascript" src="public\plugins\bootstrap-select\bootstrap-select.min.js"></script>
+  <script type="text/javascript" src="public\js\basic.js"></script>
+  <!-- InstanceBeginEditable name="scripts" -->
+  <script type="text/javascript" src="public\plugins\bootstrap-table\bootstrap-table.min.js"></script>
+  <script type="text/javascript" src='public\plugins\fileinput\js\fileinput.min.js'></script>
+  <script type="text/javascript" src='public\plugins\fileinput\js\locales\zh.js'></script>
+  <script type="text/javascript"
+    src="public\plugins\bootstrap-table\extensions\toolbar\bootstrap-table-toolbar.min.js"></script>
+  <script type="text/javascript" src="public\plugins\bootstrap-table\locale\bootstrap-table-zh-CN.min.js"></script>
+  <script type="text/javascript" src="public\js\homepage.js"></script>
+  <script type="text/javascript" src="public/js/config.js"></script>
+  <!-- InstanceEndEditable -->
+  <script type="text/javascript">
+
+    // 初始加载6条数据，懒加载数据
+    let startIndex = 0;
+    let endIndex = 6;
+
+    // 定义一个函数来加载新数据
+    function loadMoreData() {
+      // 显示加载中的圆圈
+      $('#loading_spinner').show();
+
+      $.ajax({
+        url: BaseUrl + "/plant/getAllPlants", // 这里替换成您的服务器端接口地址
+        method: 'GET',
+        data: { start: startIndex, end: endIndex },
+        success: function (data) {
+          // 在成功回调中将新数据添加到表格中
+
+          const tableBody = $('#table_body');
+          for (let i = 0; i < data.length; i++) {
+            const row = data[i];
+            row.latinname == null ? row.latinname = '无' : row.latinname = row.latinname
+            row.ke == null ? row.ke = '无' : row.ke = row.ke
+            row.shu == null ? row.shu = '无' : row.shu = row.shu
+            const newRow = `
+            <tr class="spms-row" style="transform: rotate(0);" onclick="clicktr(${row.id})">
+              <td class="align-middle clickable">${row.name}</td>
+              <td class="align-middle clickable"><em>${row.latinname}</em> <em></em></td>
+              <td class="align-middle clickable">${row.ke}</td>
+              <td class="align-middle clickable">${row.shu}</td>
+              <td class="align-middle clickable"><img src="${row.imgurl}" style="max-height: 32px; max-width: 32px"></td>
+            </tr>
+          `;
+            tableBody.append(newRow);
+          }
+
+          // 更新startIndex和endIndex，准备加载更多数据
+          startIndex = endIndex;
+          endIndex += 6;
+          // 隐藏加载中的圆圈
+          $('#loading_spinner').hide();
+        },
+        error: function (error) {
+          console.error('Failed to load data:', error);
+          // 隐藏加载中的圆圈（如果发生错误时也需要隐藏）
+          $('#loading_spinner').hide();
+        }
+      });
+    }
+
+
+
+    // 初始加载第一批数据
+    loadMoreData();
+
+    // 监听滚动事件，当滚动到底部时继续加载更多数据
+    const tableDiv = document.querySelector('div[style="height: 300px; overflow-y: scroll;"]');
+    tableDiv.addEventListener('scroll', function () {
+      if (tableDiv.scrollTop + tableDiv.clientHeight >= tableDiv.scrollHeight) {
+        loadMoreData();
+      }
+    });
+
+    //点击事件
+    function clicktr(id) {
+      window.location.href = "spms/details2.html?id=" + id
+      console.log(id)
+    }
+
+    //普通搜索
+    function general_search() {
+      var names = document.getElementById('zhongwenName').value
+      var name = names.trim()
+      if (name == '' || name == null) {
+        alert('输入不能为空!')
+        return;
+      } else {
+        window.location.href = "spms/general_list.html?name=" + name
+        //window.location.href = "test.html"
+        //console.log(name)
+      }
+    }
+    //高级搜索
+    function advanced_search() {
+      var names = document.getElementById('taxonName').value
+      var name = names.trim()
+
+      var men = document.getElementById('men').value
+      var men = men.trim()
+
+      var gang = document.getElementById('gang').value
+      var gang = gang.trim()
+
+      var mu = document.getElementById('mu').value
+      var mu = mu.trim()
+
+      var ke = document.getElementById('ke').value
+      var ke = ke.trim()
+
+      var shu = document.getElementById('shu').value
+      var shu = shu.trim()
+
+      var zhong = document.getElementById('zhong').value
+      var zhong = zhong.trim()
+
+      if (name == '' || name == null) {
+        alert('植物名称不能为空!')
+        return;
+      } else {
+        window.location.href = "spms/advanced_list.html?name=" + name + "&men=" + men + "&gang=" + gang + "&mu=" + mu + "&ke=" + ke + "&shu=" + shu + "&zhong=" + zhong
+      }
+    }
+
+    /*将总数据取出来*/
+    function data() {
+      //console.log("tot:"+totalCount)
+      /*拿到总数据*/
+      $.ajax({
+        type: "GET",
+        url: BaseUrl + "/plant/getAllPlantsPages?pages=1",    //s是SpringMVC中Controller中的请求地址 
+        contentType: "application/json;charset=utf-8",
+        success: function (data) {
+          /*拿到总数据并赋值*/
+          totalCount = data.total; //取出来的是数据总量
+          document.getElementById('ziwu').innerHTML = 5
+          document.getElementById('suisheng').innerHTML = totalCount
+          document.getElementById('photo').innerHTML = totalCount
+        },
+        error: function () {
+          alert("解析失败");
+        }
+      });
+    }
+    data()
+
+    /*将植物类别数据取出来*/
+    function category() {
+      //console.log("tot:"+totalCount)
+      /*拿到总数据*/
+      $.ajax({
+        type: "GET",
+        url: BaseUrl + "/plant/getCategorys",    //s是SpringMVC中Controller中的请求地址 
+        contentType: "application/json;charset=utf-8",
+        success: function (data) {
+          /*拿到总数据并赋值*/
+          console.log(data)
+          totalCount = data; //取出来的是数据总量
+          document.getElementById('ziwu').innerHTML = data
+        },
+        error: function () {
+          alert("解析失败");
+        }
+      });
+    }
+    category()
+  </script>
+</body>
+<!-- InstanceEnd -->
+
+</html>
