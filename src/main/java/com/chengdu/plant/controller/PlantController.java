@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/plant")
@@ -16,6 +18,22 @@ public class PlantController {
 
     @Autowired
     PlantMapper plantMapper;
+
+    @RequestMapping("/health")
+    @ResponseBody
+    public Map<String, Object> health() {
+        Map<String, Object> result = new HashMap<>();
+        result.put("status", "ok");
+        try {
+            result.put("categoryCount", plantMapper.getCategory());
+            result.put("database", "ok");
+        } catch (Exception e) {
+            result.put("database", "error");
+            result.put("error", e.getClass().getName());
+            result.put("message", e.getMessage());
+        }
+        return result;
+    }
 
     @RequestMapping("/getAllPlants")
     @ResponseBody
