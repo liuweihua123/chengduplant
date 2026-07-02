@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chengdu.plant.mapper.PlantMapper">
+
+    <select id="getAllPlants" resultType="com.chengdu.plant.entity.Plant">
+        select * from plant limit 50
+    </select>
+    <select id="getPlantsByName" resultType="com.chengdu.plant.entity.Plant">
+        select * from plant where name like '%${name}%'
+    </select>
+    <select id="getTingsuiPlants" resultType="com.chengdu.plant.entity.Plant">
+        select * from plant where leibie='1'
+    </select>
+    <select id="getFuyePlants" resultType="com.chengdu.plant.entity.Plant">
+        select * from plant where leibie='2'
+    </select>
+    <select id="getPiaofuPlants" resultType="com.chengdu.plant.entity.Plant">
+        select * from plant where leibie='3'
+    </select>
+    <select id="getCengsuiPlants" resultType="com.chengdu.plant.entity.Plant">
+        select * from plant where leibie='4'
+    </select>
+    <select id="getShishengPlants" resultType="com.chengdu.plant.entity.Plant">
+        select * from plant where leibie='5'
+    </select>
+    <select id="selectPageVo" resultType="com.chengdu.plant.entity.Plant">
+        select * from plant
+    </select>
+    <select id="selectPageVoByName" resultType="com.chengdu.plant.entity.Plant">
+        select * from plant where name like '%${name}%'
+    </select>
+    <select id="getPlantsById" resultType="com.chengdu.plant.entity.Plant">
+        select * from plant where id=#{id}
+    </select>
+    <select id="selectPageVoMultiCondition" resultType="com.chengdu.plant.entity.Plant">
+        select * from plant where 1=1
+        <if test="name!=null and name!=''">
+            and name like concat('%',#{name},'%')
+        </if>
+        <if test="men!=null and men!=''">
+            and men like concat('%',#{men},'%')
+        </if>
+        <if test="gang!=null and gang!=''">
+            and gang like concat('%',#{gang},'%')
+        </if>
+        <if test="mu!=null and mu!=''">
+            and mu like concat('%',#{mu},'%')
+        </if>
+        <if test="ke!=null and ke!=''">
+            and ke like concat('%',#{ke},'%')
+        </if>
+        <if test="shu!=null and shu!=''">
+            and shu like concat('%',#{shu},'%')
+        </if>
+        <if test="zhong!=null and zhong!=''">
+            and zhong like concat('%',#{zhong},'%')
+        </if>
+    </select>
+    <select id="getCategory" resultType="java.lang.Integer">
+        SELECT COUNT(DISTINCT leibie) AS distinct_count
+        FROM plant
+    </select>
+</mapper>
