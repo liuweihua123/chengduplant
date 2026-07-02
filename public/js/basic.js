@@ -145,6 +145,52 @@ function switchLanguage() {
 }
 
 //	i18n
+var localI18n = {
+	zh: {
+		advanced: "高级检索",
+		cardView: "卡片",
+		filter: "检索",
+		filterClear: "清空",
+		homepage: "首页",
+		lang: "切换语言",
+		listView: "列表",
+		statisticView: "统计"
+	},
+	en: {
+		advanced: "Advanced",
+		cardView: "Cards",
+		filter: "Filter",
+		filterClear: "Clear",
+		homepage: "Home",
+		lang: "Language",
+		listView: "List",
+		statisticView: "Statistics"
+	}
+};
+
+function i18nText(key, fallback, lang) {
+	var value = "";
+	try {
+		value = $.i18n.prop(key);
+	} catch (ex) {}
+	if (!value || value === key || value === "[" + key + "]" || value.toLowerCase() === "[" + key.toLowerCase() + "]") {
+		value = (localI18n[lang] && localI18n[lang][key]) || fallback || key;
+	}
+	return value;
+}
+
+function applyLocalI18n(lang) {
+	$('[data-i18n-placeholder]').each(function () {
+		$(this).attr('placeholder', i18nText($(this).data('i18n-placeholder'), $(this).attr('placeholder'), lang));
+	});
+	$('[data-i18n]').each(function () {
+		$(this).html(i18nText($(this).data('i18n'), $(this).html(), lang));
+	});
+	$('[data-i18n-value]').each(function () {
+		$(this).val(i18nText($(this).data('i18n-value'), $(this).val(), lang));
+	});
+}
+
 function loadProperties() {
 	var lang = getCookie("lang");
 	switch (lang) {
@@ -164,21 +210,14 @@ function loadProperties() {
 		language: lang,
 		callback: function () {
 			try {
-				$('[data-i18n-placeholder]').each(function () {
-					$(this).attr('placeholder', $.i18n.prop($(this).data('i18n-placeholder')));
-				});
 				$('[data-i18n-src]').each(function () {
 					$(this).attr('src', hostUrl + $.i18n.prop($(this).data('i18n-src')));
 				});
-				$('[data-i18n]').each(function () {
-					$(this).html($.i18n.prop($(this).data('i18n')));
-				});
-				$('[data-i18n-value]').each(function () {
-					$(this).val($.i18n.prop($(this).data('i18n-value')));
-				});
+				applyLocalI18n(lang);
 			} catch (ex) {}
 			}
 	});
+	applyLocalI18n(lang);
 }
 
 //	基本配置
