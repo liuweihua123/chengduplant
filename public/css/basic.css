@@ -28,6 +28,33 @@ body {
 body > .container-lg.pt-3.pb-2.my-0.bg-white:first-child {
 	display: none;
 }
+@media (max-width: 991.98px) {
+	body > .container-lg.pt-3.pb-2.my-0.bg-white:first-child {
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 1040;
+		padding-top: 0 !important;
+		padding-bottom: 0 !important;
+		background: transparent !important;
+		pointer-events: none;
+	}
+	body > .container-lg.pt-3.pb-2.my-0.bg-white:first-child #user_dashboard {
+		pointer-events: auto;
+	}
+	body > .container-lg.pt-3.pb-2.my-0.bg-white:first-child .row {
+		min-height: 0;
+	}
+	body > .container-lg.pt-3.pb-2.my-0.bg-white:first-child .col-md-8 {
+		display: none;
+	}
+	body > .container-lg.pt-3.pb-2.my-0.bg-white:first-child .col-md-4 {
+		flex: 0 0 100%;
+		max-width: 100%;
+	}
+}
 h1, h2, h3, h4, h5, h6 {
 	font-weight: 400;
 }
