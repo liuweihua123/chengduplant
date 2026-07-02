@@ -5,7 +5,7 @@
 Set these on the hosting platform:
 
 ```txt
-SPRING_DATASOURCE_URL=jdbc:mysql://HOST:PORT/chengdu?useSSL=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+SPRING_DATASOURCE_URL=jdbc:mysql://HOST:PORT/chengdu?sslMode=REQUIRED&characterEncoding=utf8&serverTimezone=Asia/Shanghai
 SPRING_DATASOURCE_USERNAME=YOUR_DB_USER
 SPRING_DATASOURCE_PASSWORD=YOUR_DB_PASSWORD
 PORT=8077
