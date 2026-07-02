@@ -4,6 +4,11 @@ spring:
     username: ${SPRING_DATASOURCE_USERNAME:root}
     password: ${SPRING_DATASOURCE_PASSWORD:}
     driver-class-name: com.mysql.cj.jdbc.Driver
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
 
 swagger:
   enable: true
@@ -13,6 +18,11 @@ swagger:
   #mapper-locations: classpath:mybatis/mapper/*.xml #sql映射文件位置
 server:
   port: ${PORT:8077}
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
 #  configuration: #指定mybatis全局配置文件中的相关配置项
 #    map-underscore-to-camel-case: true #开启驼峰命名，如果使用yaml配置那么就不能再配置config-location
 
